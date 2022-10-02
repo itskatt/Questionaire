@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Questionaire d'enquête</title>
+</head>
+
+<body>
+	<nav>
+		<img src="img/logo.png" width="250" height="120" alt="Notre logo : le mot CONVERGENCE suivi de lignes convergentes symbolisant le rassemblement de connaisances et de savoirs.">
+        <a href="mailto:contact&commat;convergence.fr">Nous contacter</a>
+    </nav>
+
+	<header>
+        <h1>Questionaire d'enquête</h1>       
+	</header>
+
+	<hr>
+
+	<main>
+		<form onsubmit="alert('Formulaire envoyé !\nMerci pour vos réponses.')">
+			<section class="obligatoire">
+				<h2>Qui êtes-vous&nbsp;?</h2>
+
+				<div class="section-form">
+					<fieldset>
+						<legend>Prénom</legend>
+                        <!-- Le regex sert a interdire les nombres -->
+						<input type="text" pattern="[^0-9]*" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Nom</legend>
+                        <input type="text" pattern="[^0-9]*" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Courriel</legend>
+                        <input type="email" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Adresse</legend>
+                        <input type="text" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Code postal</legend>
+                        <!-- 
+                            Ici, nous avons utilisé le type 'text' parce que le type 'number'
+                            ne fonctionne pas avec l'argument pattern. Pour que les deux marchent
+                            ensemble, nous aurions dût utiliser du javascript.
+
+                            Exemple de type 'number':
+                            <input type="number" min="0" max="99999" required>
+                         -->
+                        <input type="text" pattern="\d{5}" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Ville</legend>
+                        <input type="text" pattern="[^0-9]*" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Numéro de téléphone (fixe ou portable)</legend>
+                        <!-- Source du regex: https://askcodez.com/regex-pour-les-numeros-de-telephone-francais.html -->
+                        <input type="tel" pattern="^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Vous êtes...</legend>
+                        <select required>
+                            <option selected disabled="disabled" label="– choisissez une option –"></option>
+                            <option>Particulier</option>
+                            <option>Représentant d'entreprise</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Date de saisie</legend>
+                        <input type="date" required>
+                    </fieldset>
+
+                    <p>*<em>Ces champs sont obligatoires.</em></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Quels sont vos besoins&nbsp;?</h2>
+
+                <div class="section-form">
+                    <fieldset>
+                        <legend>Quels appareils informatiques possédez-vous&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="fixe" name="q1" value="fixe">
+                                <label for="fixe">Ordinateur fixe</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="portable" name="q1" value="portable">
+                                <label for="portable">Ordinateur portable</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="tel" name="q1" value="tel">
+                                <label for="tel">Téléphone portable</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="tablette" name="q1" value="tablette">
+                                <label for="tablette">Tablette</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="imprimante" name="q1" value="imprimante">
+                                <label for="imprimante">Imprimante</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="tv" name="q1" value="tv">
+                                <label for="tv">Télévision connectée</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel est votre niveau de compétences en réparation informatique (ou celui de votre
+                            entreprise)&nbsp;?</legend>
+
+                        <ul>
+                            <li>
+                                <input type="radio" id="inexperimente" name="reparation" value="inexistant">
+                                <label for="inexperimente">Inexpérimenté</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="novice" name="reparation" value="mauvais">
+                                <label for="novice">Novice</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="moyen" name="reparation" value="correct">
+                                <label for="moyen">Moyen</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="confirme" name="reparation" value="bon">
+                                <label for="confirme">Confirmé</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="expert" name="reparation" value="excellent">
+                                <label for="expert">Expert</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel est votre niveau de compétences en utilisation informatique (ou celui de votre
+                            entreprise)&nbsp;?</legend>
+
+                        <ul>
+                            <li>
+                                <input type="radio" id="inexperimente2" name="utilisation" value="inexistant">
+                                <label for="inexperimente2">Inexpérimenté</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="novice2" name="utilisation" value="mauvais">
+                                <label for="novice2">Novice</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="moyen2" name="utilisation" value="correct">
+                                <label for="moyen2">Moyen</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="confirme2" name="utilisation" value="bon">
+                                <label for="confirme2">Confirmé</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="expert2" name="utilisation" value="excellent">
+                                <label for="expert2">Expert</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Si vous devriez faire appel à un réparateur, quel(s) moyen(s) utiliseriez-vous&nbsp;?
+                        </legend>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="jaune" name="reparateur" value="jaune">
+                                <label for="jaune">Pages jaunes</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="internet" name="reparateur" value="internet">
+                                <label for="internet">Internet (site spécialisé)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="internet2" name="reparateur" value="internet">
+                                <label for="internet2">Internet (moteur de recherches)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="bouche" name="reparateur" value="bouche">
+                                <label for="bouche">Bouche à oreille</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="prospectus" name="reparateur" value="prospectus">
+                                <label for="prospectus">Par un prospectus</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel est le critère le plus important d'un bon réparateur&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="radio" id="prix" name="critere" value="faible">
+                                <label for="prix">Le prix</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="rapport" name="critere" value="rapport">
+                                <label for="rapport">Le rapport qualité/prix</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="qualite" name="critere" value="qualite">
+                                <label for="qualite">La qualité</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="com" name="critere" value="com">
+                                <label for="com">Une bonne communication/qualités humaines</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel(s) type(s) de prestation(s) souhaitez-vous&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="reparation" name="prestation" value="reparation">
+                                <label for="reparation">Réparation des ordinateurs</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="entretien" name="prestation" value="entretien">
+                                <label for="entretien">Entretien des ordinateurs</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="setup" name="prestation" value="setup">
+                                <label for="setup">Mise en place/gestion d'internet</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="config" name="prestation" value="config">
+                                <label for="config">Configuration des machines</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="optimisation" name="prestation" value="optimisation">
+                                <label for="optimisation">Optimisation pour de meilleures performances</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel(s) usage(s) faites-vous de votre/vos ordinateur(s)&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="bureautique" name="prestation" value="burautique">
+                                <label for="bureautique">Bureautique (traitement de texte, tableur, mail)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="media" name="prestation" value="media">
+                                <label for="media">Multimédia simple (regarder des vidéos, photos,...)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="prod" name="prestation" value="prod">
+                                <label for="prod">Production/création multimédia</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="dev" name="prestation" value="dev">
+                                <label for="dev">Développement</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel(s) système(s) d'exploitation utilisez-vous&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="windows" name="sysexploit" value="windows">
+                                <label for="windows">Windows</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="macos" name="sysexploit" value="macos">
+                                <label for="macos">OSX/MacOS</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="linux" name="sysexploit" value="linux">
+                                <label for="linux">Linux</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quel budget seriez-vous prêt à investir dans votre/vos ordinateur(s)&nbsp;?</legend>
+                        <ul>
+                            <li>
+                                <input type="radio" id="200" name="budget" value="200">
+                                <label for="200">200-400€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="400" name="budget" value="400">
+                                <label for="400">400-600€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="600" name="budget" value="600">
+                                <label for="600">600-800€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="800" name="budget" value="800">
+                                <label for="800">800-1000€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="1000" name="budget" value="1000">
+                                <label for="1000">+1000€</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Quelle tarification vous semble être la plus raisonnable pour une intervention&nbsp;?</legend>
+
+                        <ul>
+                            <li>
+                                <input type="radio" id="30" name="tarif" value="30">
+                                <label for="30">30-40€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="40" name="tarif" value="30">
+                                <label for="40">40-50€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="50" name="tarif" value="30">
+                                <label for="50">50-60€</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="60" name="tarif" value="30">
+                                <label for="60">+60€</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </section>
+
+            <section>
+                <h2>Merci pour vos réponses&nbsp;!</h2>
+
+                <button>Soumettre le formulaire</button>
+            </section>
+        </form>
+    </main>
+
+  <footer>
+      &copy; 2022 – Convergence
+  </footer>
+</body>

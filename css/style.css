@@ -1,0 +1,296 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
+
+:root {
+    --coul-fond: floralwhite;
+    --coul-fond2: rgb(211, 211, 211);
+
+    --coul-bleu: rgb(0, 127, 255);
+    --coul-orange: rgb(255, 127, 0);
+
+    --bordure: solid 1px white;
+
+    --ombre: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --ombre2: 5px 5px 5px gray;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--coul-fond);
+
+    font-size: 17px;
+    font-family: "Source Sans 3", sans-serif;
+
+    margin: 0;
+}
+
+main, header {
+    margin: 0 auto;
+
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Barre de navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 0.5em 3em;
+    margin-bottom: 2em;
+
+    background-color: var(--coul-fond2);
+}
+
+/* Le boutton de contact */
+nav > a {
+    cursor: pointer;
+
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+
+    padding: 0.5em 0.8em;
+    text-decoration: none;
+    
+    color: var(--coul-bleu);
+    border-color: var(--coul-bleu);
+
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav > a:hover {
+    color: white;
+    background-color: var(--coul-bleu);
+    border-color: var(--coul-bleu);
+}
+
+/* Séparateur */
+hr {
+    margin: 1em auto;
+    width: 70%;
+    max-width: 700px;
+}
+
+/* Les titres */
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+
+    background-color: var(--coul-fond2);
+    /* color: var(--coul-bleu); */
+
+    margin: 0 auto;
+    padding: 0.5em 1.5em;
+
+    border: var(--bordure);
+    box-shadow: var(--ombre);
+}
+
+h1::first-letter, h2::first-letter {
+    color: var(--coul-bleu);
+    font-size: 1.5em;
+}
+
+h2 {
+    /* color: var(--coul-bleu); */
+    margin-top: 0;
+}
+
+h1, h2 {
+    font-family: "Noto Serif", serif;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 0.5em;
+}
+
+/* Les sections du formulaire */
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 2em 1em;
+    margin-bottom: 2em;
+
+    border: var(--bordure);
+    border-radius: 0 15px 15px 15px;
+
+    background: var(--coul-fond2);
+    box-shadow: var(--ombre);
+}
+
+/* Sous section */
+.section-form {
+    box-shadow: var(--ombre2);
+
+    padding: 1em;
+
+    width: 100%;
+    max-width: 500px;
+
+    background: var(--coul-fond);
+}
+
+/* champs obligatoires */
+.obligatoire legend::after {
+    content: "*";
+    color: crimson;
+    font-size: 1em;
+}
+
+.obligatoire p {
+    font-size: 0.8em;
+    color: crimson;
+}
+
+/* Champ de question */
+fieldset {
+    border: none;
+    padding-bottom: 1em;
+}
+
+fieldset > legend:first-letter {
+    font-size: 1.5em;
+    color: var(--coul-orange);
+}
+
+/* Zones de texte des questions */
+fieldset > input {
+    display: block; /* Pour pouvoir le centrer */
+    margin: 0 auto;
+
+    width: 90%;
+    height: 2em;
+
+    background: var(--coul-fond2);
+
+    border: 2px solid rgb(134, 133, 132);
+    border-radius: 5px;
+}
+
+/* Date de saisie */
+input[type=date] {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 0.75em;
+}
+
+/* Curseur spécial */
+input[type=checkbox], input[type=radio], label {
+    cursor: pointer;
+}
+
+/* Agrandissement des cases a cocher */
+input[type=checkbox], input[type=radio] {
+    min-width: 20px;
+    min-height: 20px;
+
+    margin-right: 0.75em;
+}
+
+fieldset ul {
+    list-style-type: none;
+
+    padding-left: 1em;
+    margin-top: 0.5em;
+}
+ul > li {
+    display: flex;
+    align-items: center;
+}
+
+/* Pour les cases a cocher */
+fieldset input[type=checkbox] {
+    display: inline;
+}
+
+/* Menu deroulant */
+fieldset > select {
+    display: block;
+    margin: 0 auto;
+
+    background: var(--coul-fond2);
+
+    border: 2px solid rgb(134, 133, 132);
+    border-radius: 5px;
+
+    padding: 0.5em;
+    width: 90%;
+}
+
+/* Champs mal remplis */
+input:invalid, select:invalid {
+    border-color: crimson;
+    box-shadow: 0px 0px 3px 1px crimson;
+}
+
+/* Le boutton pour soumetre le formulaire */
+button {
+    padding: 1em 1.5em;
+
+    background-color: floralwhite;
+
+    border: 1px solid var(--coul-orange);
+    border-radius: 17px;
+
+    cursor: pointer;
+
+    box-shadow: var(--ombre);
+
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-property: background-color;
+}
+
+button:hover {
+    background-color: var(--coul-orange);
+    color: white;
+}
+
+/* Réactivité */
+@media screen and (max-width: 750px) {
+    main, header {
+        width: 570px;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main, header {
+        width: 95%;
+    }
+
+    nav {
+        flex-direction: column;
+        row-gap: 1em;
+    }
+
+    hr {
+        width: 80%;
+    }
+
+    h1 {
+        /* Pour faciliter le fait de cliquer sur les cases sur mobile */
+        padding: 0.5em 1em;
+    }
+
+    ul > li {
+        margin: 0.5em auto;
+    }
+}
